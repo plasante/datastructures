@@ -65,24 +65,20 @@ class DArray {
 	}
 	
 	private void merge(long[] workSpace, int lowPtr, int highPtr, int upperBound) {
-		int j = 0;
+		int j = 0; // workspace index
 		int lowerBound = lowPtr;
 		int mid = highPtr - 1;
-		int n = upperBound - lowerBound + 1;
-		
-		while(lowPtr <= mid && highPtr <= upperBound)
-			if( theArray[lowPtr] < theArray[highPtr] )
+		int n = upperBound - lowerBound + 1; // # of items
+		while (lowPtr <= mid && highPtr <= upperBound)
+			if (theArray[lowPtr] < theArray[highPtr])
 				workSpace[j++] = theArray[lowPtr++];
 			else
 				workSpace[j++] = theArray[highPtr++];
-		
-		while(lowPtr < mid)
+		while (lowPtr <= mid)
 			workSpace[j++] = theArray[lowPtr++];
-		
-		while(highPtr <= upperBound)
+		while (highPtr <= upperBound)
 			workSpace[j++] = theArray[highPtr++];
-		
-		for(j=0; j < n; j++)
+		for (j = 0; j < n; j++)
 			theArray[lowerBound + j] = workSpace[j];
-	}
+	} // end merge()
 }
