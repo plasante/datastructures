@@ -32,6 +32,7 @@ public class TreeApp {
 					System.out.print("Enter value to insert: ");
 					value = getInt();
 					theTree.insert(value, value + 0.9);
+					theTree.displayTree();
 					break;
 				case 'q':
 				default: 
